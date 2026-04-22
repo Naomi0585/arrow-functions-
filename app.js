@@ -146,13 +146,13 @@ let message = (name) => {
 console.log(message('Allie')); 
 
 
-let Student = (name, age, hometown) => {
+let Student = function (name, age, hometown)  {
   this.name = name;
   this.age = age;
   this.hometown = hometown;
 };
 
-let joe = new Student('Joe Schmoe', 100, 'Anytown, USA');
+let joe = new Student ('Joe Schmoe', 100, 'Anytown, USA');
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
@@ -190,17 +190,17 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scope();
+joe.scope();
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scopeArrow();
+joe.scopeArrow();
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+// In this case 'this' would be the object or 'joe' 
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+//this would also be an object but in a global scale, not just 'joe'.So its undefined on strict mode.
 // 3. Explain why "this" is different when an arrow function is used.
-//
+//Arrow functions do not have their own 'this' binding. Arrow functions inherit 'this' from the scope that defines them and are not necessarily bound to the calling object.
